@@ -1,13 +1,14 @@
 import streamlit as st
+import pandas as pd
 
 # Configuração da página
 st.set_page_config(
-    page_title="Calculadora de IMC"
+    page_title="Calculadora de IMC",
     page_icon="⚖️",
     layout="wide",
 )
 
-st.tittle("📚 Entendendo o IMC")
+st.tittle = '📚 Entendendo o IMC'
 
 st.markdown(
     """
@@ -20,7 +21,7 @@ para fazer uma triagem rapida da população adulta.
 """
 )
 
-st.subheder("Como o IMC é calculado?")
+st.subheder = "Como o IMC é calculado?"
 st.latex(r"IMC = \frac{peso (kg)}{altura (cm)}")
 
 st.markdown(
@@ -42,7 +43,7 @@ st.subheader("Tabela de classificação")
 tabela = pd.DataFrame(
     {
         "Classificação": ["Abaixo do peso", "Peso normal", "Sobrepeso", "Obesidade"],
-        "IMC (kg/m²)": ["menor que 18,5", "18,5 a 29,9", "25 a 29,9"],
+        "IMC (kg/m²)": ["menor que 18,5", "18,5 a 29,9", "25 a 29,9" "30 a 34,9"],
     }
 )
 st.table(tabela)
@@ -51,7 +52,7 @@ st.image("imagens/tabela_imc.png", caption="Tabela de IMC", use_column_width=Tru
 
 st.subheader("Resumo rápido")
 
-col1, col2, col3 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 
 with col1:
     st.metric("Abaixo do peso", "< 18,5")
@@ -61,8 +62,8 @@ with col3:
     st.metric("Sobrepeso", "25 – 29,9")
 
 if st.button("Quero saber mais"):
-st.info("O IMC é só o primeiro passo! Converse com um nutricionista ou médico.")
+ st.info("O IMC é só o primeiro passo! Converse com um nutricionista ou médico.")
 
-st.page_link("pages/calculadora.py", label="Ir para a calculadora", icon="🧮")
+ st.page_link("pages/calculadora.py", label="Ir para a calculadora", icon="🧮")
 
-st.caption("Projeto desenvolvido para fins educativos. Nao substitui consulta médica.")
+ st.caption("Projeto desenvolvido para fins educativos. Nao substitui consulta médica.")
